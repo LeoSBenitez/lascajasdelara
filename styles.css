@@ -185,19 +185,68 @@ footer {
   font-size: 0.9em; /* Tamaño de fuente reducido */
 }
 
+/* Contenedor del producto y las imágenes */
+.product-container {
+  display: flex;
+  justify-content: space-between; /* Distribuye el espacio entre las imágenes y la info */
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Igualar el tamaño de ambas imágenes */
+.large-image, .side-image {
+  width: 40%; /* Ambas imágenes tendrán el mismo ancho */
+  max-width: 450px; /* Máximo tamaño */
+  height: auto; /* Mantener la proporción */
+  border-radius: 8px;
+  object-fit: cover; /* Ajuste para que no se deforme */
+  margin: 0 20px; /* Espacio entre las imágenes y la información del producto */
+}
+
+/* Información del producto */
+.product-info {
+  flex-grow: 1; /* La información ocupará el espacio restante */
+  max-width: 30%; /* Tamaño máximo para el cuadro de información */
+  background-color: #eb5788;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 20px; /* Margen entre imágenes y cuadro de información */
+}
+
+/* Estilo general del botón */
+button {
+  background-color: #d81b60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ad1457;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .header nav ul {
+  .product-container {
     flex-direction: column;
+    align-items: center;
   }
 
-  .gallery {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  .large-image, .side-image {
+    width: 80%; /* Ajuste de ancho para pantallas pequeñas */
+    max-width: 500px; /* Límite de tamaño máximo */
+    margin: 10px 0; /* Espaciado vertical en pantallas pequeñas */
   }
 
-  .product-info img {
+  .product-info {
     width: 100%;
-    height: auto; /* Asegura que mantenga la proporción */
+    max-width: 100%; /* Información del producto a lo ancho en pantallas pequeñas */
+    margin: 20px 0;
   }
 
   button {
@@ -205,12 +254,6 @@ footer {
     padding: 15px; /* Aumenta el área de clic */
   }
 
-  /* Ajustes de márgenes */
-  .gallery-item {
-    margin-bottom: 15px; /* Espacio entre imágenes */
-  }
-
-  /* Ajustes de texto */
   h2 {
     font-size: 1.5em; /* Reduce tamaño de títulos */
   }

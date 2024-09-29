@@ -16,8 +16,12 @@
     </header>
 
     <section id="producto-detalle">
-        <div class="product-info">
-            <img id="product-image" src="" alt="Producto seleccionado" class="large-image">
+        <div class="product-container">
+          <!-- Imagen del producto a la izquierda -->
+          <img id="product-image" src="" alt="Producto seleccionado" class="large-image">
+      
+          <!-- Información del producto en el centro -->
+          <div class="product-info">
             <h3 id="product-name"></h3>
             <p id="product-price"></p>
             <label for="cantidad">Cantidad:</label>
@@ -25,8 +29,14 @@
             <p id="envio">Costo de envío: $5000</p>
             <p id="precio-total"></p> <!-- Precio dinámico -->
             <button id="comprar-button">Comprar</button>
+          </div>
+      
+          <!-- Imagen lateral a la derecha -->
+          <img id="side-image" src="gallery/side-image.png" alt="Imagen adicional" class="side-image">
         </div>
-    </section>
+      </section>
+      
+    
 
     <script type="text/javascript">
         const COSTO_ENVIO = 5000;
@@ -35,17 +45,16 @@
         const producto = params.get('producto');
 
         const productos = {
-    'moda-chic': { nombre: 'Moda Chic', imagen: 'gallery/cap1.PNG', precio: 12000 },
-    'piel-perfecta': { nombre: 'Piel Perfecta', imagen: 'gallery/cap2.PNG', precio: 12500 },
-    'verano-fresco': { nombre: 'Verano Fresco', imagen: 'gallery/cap3.PNG', precio: 12000 },
-    'arte-moderno': { nombre: 'Arte Moderno', imagen: 'gallery/cap4.PNG', precio: 11800 },
-    'lujo-naturalezas': { nombre: 'Lujo Naturaleza', imagen: 'gallery/cap5.PNG', precio: 11500 },
-    'esencia-urbana': { nombre: 'Esencia Urbana', imagen: 'gallery/cap6.PNG', precio: 11400 },
-    'explosion-color': { nombre: 'Explosión de Color', imagen: 'gallery/cap7.PNG', precio: 12000 },
-    'vida-vibrante': { nombre: 'Vida Vibrante', imagen: 'gallery/cap8.PNG', precio: 12100 },
-    'reflejo-arte': { nombre: 'Reflejo de Arte', imagen: 'gallery/cap9.PNG', precio: 12300 },
-};
-
+            'moda-chic': { nombre: 'Moda Chic', imagen: 'gallery/cap1.PNG', precio: 12000 },
+            'piel-perfecta': { nombre: 'Piel Perfecta', imagen: 'gallery/cap2.PNG', precio: 12500 },
+            'verano-fresco': { nombre: 'Verano Fresco', imagen: 'gallery/cap3.PNG', precio: 12000 },
+            'arte-moderno': { nombre: 'Arte Moderno', imagen: 'gallery/cap4.PNG', precio: 11800 },
+            'lujo-naturalezas': { nombre: 'Lujo Naturaleza', imagen: 'gallery/cap5.PNG', precio: 11500 },
+            'esencia-urbana': { nombre: 'Esencia Urbana', imagen: 'gallery/cap6.PNG', precio: 11400 },
+            'explosion-color': { nombre: 'Explosión de Color', imagen: 'gallery/cap7.PNG', precio: 12000 },
+            'vida-vibrante': { nombre: 'Vida Vibrante', imagen: 'gallery/cap8.PNG', precio: 12100 },
+            'reflejo-arte': { nombre: 'Reflejo de Arte', imagen: 'gallery/cap9.PNG', precio: 12300 },
+        };
 
         if (producto && productos[producto]) {
             const productImage = document.getElementById('product-image');
