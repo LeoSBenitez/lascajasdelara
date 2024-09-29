@@ -148,38 +148,74 @@ a[href*="wa.me"]:hover {
   background-color: #128C7E;
 }
 
+/* Estilos para el cuadro de compra */
+.buy-box {
+  background-color: transparent; /* Sin fondo */
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 15px; /* Agrega margen inferior para separarlo de la imagen */
+}
+
+.buy-button {
+  display: inline-block;
+  padding: 15px; /* Ajustado para que sea un cuadrado */
+  background-color: #009688; /* Verde agua oscuro */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.buy-button:hover {
+  background-color: #00796b; /* Efecto hover */
+}
+
+/* Estilos para el pie de página */
+footer {
+  text-align: center;
+  padding: 10px; /* Tamaño reducido */
+  background-color: #c2185b; /* Color de fondo del pie */
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em; /* Tamaño de fuente reducido */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .header nav ul {
-      flex-direction: column;
+    flex-direction: column;
   }
-  
+
   .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  
+
   .product-info img {
-      width: 100%;
-      height: auto; /* Asegura que mantenga la proporción */
+    width: 100%;
+    height: auto; /* Asegura que mantenga la proporción */
   }
 
   button {
-      width: 100%;
-      padding: 15px; /* Aumenta el área de clic */
+    width: 100%;
+    padding: 15px; /* Aumenta el área de clic */
   }
 
   /* Ajustes de márgenes */
   .gallery-item {
-      margin-bottom: 15px; /* Espacio entre imágenes */
+    margin-bottom: 15px; /* Espacio entre imágenes */
   }
 
   /* Ajustes de texto */
   h2 {
-      font-size: 1.5em; /* Reduce tamaño de títulos */
+    font-size: 1.5em; /* Reduce tamaño de títulos */
   }
 
   p {
-      font-size: 1em; /* Ajusta tamaño de párrafos */
+    font-size: 1em; /* Ajusta tamaño de párrafos */
   }
 }
-
