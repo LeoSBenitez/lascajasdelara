@@ -1,0 +1,185 @@
+/* General styles for all pages */
+body {
+  background-color: #f8bbd0; /* Fondo rosado */
+  color: #fff; /* Texto blanco */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Responsive navbar */
+.header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+  background-color: #c2185b; /* Barra rosada más oscura */
+}
+
+.header nav ul li {
+  margin-right: 15px;
+}
+
+.header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: background 0.3s;
+}
+
+.header nav ul li a:hover {
+  background-color: #d81b60; /* Efecto hover en la navegación */
+}
+
+.instagram-logo {
+  margin-left: auto;
+}
+
+.instagram-logo img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+/* Gallery Styles */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Ajustamos el tamaño de las imágenes en la galería */
+.gallery-item img {
+  width: 100%;
+  height: 500px; /* Aumentamos la altura de las imágenes */
+  object-fit: cover; /* Aseguramos que la imagen mantenga proporción */
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1); /* Efecto de hover más grande */
+}
+
+/* Product Detail Styles */
+#producto-detalle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.product-info {
+  text-align: center;
+  background-color: #eb5788; /* Cuadro rosado claro */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-info img {
+  width: 250px; /* Cambia esto a 100% para que ocupe todo el espacio */
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+#cantidad {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  width: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+button {
+  padding: 15px 20px;
+  background-color: #d81b60;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ad1457;
+}
+
+/* Confirmation page */
+#confirmacion-compra {
+  text-align: center;
+  padding: 40px;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.5em;
+}
+
+/* WhatsApp button */
+a[href*="wa.me"] {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #25D366; /* Color típico de WhatsApp */
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+a[href*="wa.me"]:hover {
+  background-color: #128C7E;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header nav ul {
+      flex-direction: column;
+  }
+  
+  .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .product-info img {
+      width: 100%;
+      height: auto; /* Asegura que mantenga la proporción */
+  }
+
+  button {
+      width: 100%;
+      padding: 15px; /* Aumenta el área de clic */
+  }
+
+  /* Ajustes de márgenes */
+  .gallery-item {
+      margin-bottom: 15px; /* Espacio entre imágenes */
+  }
+
+  /* Ajustes de texto */
+  h2 {
+      font-size: 1.5em; /* Reduce tamaño de títulos */
+  }
+
+  p {
+      font-size: 1em; /* Ajusta tamaño de párrafos */
+  }
+}
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="confirmacion-compra">
+        <h2>Confirmación de Compra</h2>
+        <p id="total-a-pagar"></p>
+        <p>Gracias por tu compra. Puedes contactarte conmigo para coordinar el envío y el pago.</p>
+        <p>Transferir al alias: <strong>lascajasdelara</strong></p>
+        <p>Transferir al cvu: <strong>0000003100019806466228</strong></p>
+        <a id="whatsapp-link" href="#" target="_blank">Contactar por WhatsApp</a>
+    </section>
+
+    <script type="text/javascript">
+        const params = new URLSearchParams(window.location.search);
+        const total = params.get('total');
+        const producto = params.get('producto');
+        const cantidad = params.get('cantidad');
+
+        if (total) {
+            document.getElementById('total-a-pagar').innerText = `Total a pagar: $${total}`;
+        }
+
+        // Enlace de WhatsApp con mensaje personalizado
+        const whatsappLink = document.getElementById('whatsapp-link');
+        const mensaje = `Hola, he comprado ${cantidad} unidad(es) de ${producto}. Total a pagar: $${total}.`;
+        whatsappLink.href = `https://wa.me/1123223899?text=${encodeURIComponent(mensaje)}`;
+    </script>
+</body>
+</html>

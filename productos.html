@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="producto-detalle">
+        <div class="product-info">
+            <img id="product-image" src="" alt="Producto seleccionado" class="large-image">
+            <h3 id="product-name"></h3>
+            <p id="product-price"></p>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" min="1" value="1">
+            <p id="envio">Costo de envío: $5000</p>
+            <p id="precio-total"></p> <!-- Precio dinámico -->
+            <button id="comprar-button">Comprar</button>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        const COSTO_ENVIO = 5000;
+
+        const params = new URLSearchParams(window.location.search);
+        const producto = params.get('producto');
+
+        const productos = {
+    'moda-chic': { nombre: 'Moda Chic', imagen: 'gallery/cap1.PNG', precio: 12000 },
+    'piel-perfecta': { nombre: 'Piel Perfecta', imagen: 'gallery/cap2.PNG', precio: 12500 },
+    'verano-fresco': { nombre: 'Verano Fresco', imagen: 'gallery/cap3.PNG', precio: 12000 },
+    'arte-moderno': { nombre: 'Arte Moderno', imagen: 'gallery/cap4.PNG', precio: 11800 },
+    'lujo-naturalezas': { nombre: 'Lujo Naturaleza', imagen: 'gallery/cap5.PNG', precio: 11500 },
+    'esencia-urbana': { nombre: 'Esencia Urbana', imagen: 'gallery/cap6.PNG', precio: 11400 },
+    'explosion-color': { nombre: 'Explosión de Color', imagen: 'gallery/cap7.PNG', precio: 12000 },
+    'vida-vibrante': { nombre: 'Vida Vibrante', imagen: 'gallery/cap8.PNG', precio: 12100 },
+    'reflejo-arte': { nombre: 'Reflejo de Arte', imagen: 'gallery/cap9.PNG', precio: 12300 },
+};
+
+
+        if (producto && productos[producto]) {
+            const productImage = document.getElementById('product-image');
+            const productName = document.getElementById('product-name');
+            const productPrice = document.getElementById('product-price');
+            const precioTotal = document.getElementById('precio-total');
+            const cantidadInput = document.getElementById('cantidad');
+
+            // Establecer la información del producto
+            productImage.src = productos[producto].imagen;
+            productName.innerText = productos[producto].nombre;
+            productPrice.innerText = `$${productos[producto].precio}`;
+            precioTotal.innerText = `Total: $${productos[producto].precio + COSTO_ENVIO}`;
+
+            // Actualizar el precio total al cambiar la cantidad
+            cantidadInput.addEventListener('input', () => {
+                const cantidad = cantidadInput.value;
+                const total = (productos[producto].precio * cantidad) + COSTO_ENVIO;
+                precioTotal.innerText = `Total: $${total}`;
+            });
+
+            // Configurar el botón de compra
+            document.getElementById('comprar-button').onclick = function() {
+                const cantidad = cantidadInput.value;
+                const total = (productos[producto].precio * cantidad) + COSTO_ENVIO;
+                window.location.href = `confirmacion-compra.html?total=${total}&producto=${encodeURIComponent(productos[producto].nombre)}&cantidad=${cantidad}`;
+            };
+        }
+    </script>
+</body>
+</html>
